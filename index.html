@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3f0">
+  <meta name="description" content="Várdobbt — Dobos Péter Imre építészmérnök. Építészeti tervezés Miskolcon és országszerte.">
+  <title>Várdobbt — Dobos Péter Imre | Építészmérnök</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f3f0;
+      --white: #fff;
+      --ink: #191919;
+      --muted: #777773;
+      --line: #d9d8d3;
+      --soft: #e9e8e4;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 5px;
+    }
+
+    .shell {
+      width: min(1200px, calc(100% - 96px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .wordmark-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: -.08em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      color: #555550;
+      font-size: 12px;
+    }
+
+    .nav a:hover,
+    .text-link:hover {
+      color: var(--muted);
+    }
+
+    .nav .nav-contact {
+      padding: 13px 17px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      transition: background .2s, color .2s;
+    }
+
+    .nav .nav-contact:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .hero {
+      min-height: 610px;
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      align-items: center;
+      gap: 56px;
+      padding-block: 72px 80px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 25px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 620px;
+      margin-block: 25px 24px;
+      font-family: var(--serif);
+      font-size: clamp(54px, 7.2vw, 92px);
+      font-weight: 400;
+      letter-spacing: -.065em;
+      line-height: .99;
+    }
+
+    h1 span {
+      display: block;
+      color: #777772;
+    }
+
+    .hero-copy {
+      max-width: 430px;
+      margin-bottom: 32px;
+      color: #64645f;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 19px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 11px;
+      transition: background .2s;
+    }
+
+    .button:hover {
+      background: #444440;
+    }
+
+    .button-arrow {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 26px;
+      margin-top: 55px;
+      color: #74746e;
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta span + span {
+      padding-left: 26px;
+      border-left: 1px solid var(--line);
+    }
+
+    .drawing {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      background: #e9e8e4;
+    }
+
+    .drawing img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 56%;
+      filter: grayscale(1) contrast(1.04);
+    }
+
+    .drawing-caption {
+      position: absolute;
+      right: 19px;
+      bottom: 18px;
+      padding: 9px 11px;
+      background: rgba(255, 255, 255, .88);
+      color: #666660;
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding-block: 100px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 50px;
+      margin-bottom: 55px;
+    }
+
+    .section-heading .eyebrow {
+      margin-top: 11px;
+    }
+
+    h2 {
+      max-width: 680px;
+      margin-bottom: 0;
+      font-family: var(--serif);
+      font-size: clamp(38px, 5.4vw, 62px);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: 1.08;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 50px;
+    }
+
+    .about-note {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .about-copy {
+      max-width: 650px;
+      color: #555550;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .about-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-section {
+      padding-block: 88px;
+      background: var(--white);
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .project-copy h2 {
+      margin-block: 22px 18px;
+    }
+
+    .project-copy p {
+      max-width: 340px;
+      margin-bottom: 0;
+      color: #64645f;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .project-image {
+      position: relative;
+      aspect-ratio: 1.35;
+      overflow: hidden;
+      background: var(--soft);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 53%;
+      filter: grayscale(1) contrast(1.04);
+    }
+
+    .project-image figcaption {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      padding: 9px 11px;
+      background: rgba(255, 255, 255, .9);
+      color: #555550;
+      font-size: 9px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+    }
+
+    .service {
+      min-height: 195px;
+      padding: 25px 24px 22px 0;
+    }
+
+    .service + .service {
+      padding-left: 24px;
+      border-left: 1px solid var(--line);
+    }
+
+    .service-number {
+      color: #85857f;
+      font-size: 10px;
+      letter-spacing: .12em;
+    }
+
+    .service h3 {
+      margin-block: 33px 10px;
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -.03em;
+    }
+
+    .service p {
+      max-width: 270px;
+      margin-bottom: 0;
+      color: #777772;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .contact {
+      padding-block: 88px;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: 50px;
+    }
+
+    .contact .eyebrow {
+      color: #aaa9a3;
+    }
+
+    .contact h2 {
+      max-width: 560px;
+      margin-top: 23px;
+      font-size: clamp(42px, 6vw, 72px);
+    }
+
+    .contact-details {
+      justify-self: end;
+      width: min(100%, 360px);
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 9px;
+      color: #aaa9a3;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .contact-item {
+      display: block;
+      width: fit-content;
+      margin-bottom: 25px;
+      font-family: var(--serif);
+      font-size: clamp(19px, 2.4vw, 25px);
+    }
+
+    .contact-item:hover {
+      color: #c7c6c0;
+    }
+
+    .footer {
+      display: flex;
+      min-height: 73px;
+      align-items: center;
+      justify-content: space-between;
+      color: #85857f;
+      font-size: 10px;
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: min(100% - 40px, 560px);
+      }
+
+      .topbar {
+        height: 72px;
+      }
+
+      .nav {
+        gap: 18px;
+      }
+
+      .nav a:not(.nav-contact) {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 43px;
+        padding-block: 67px 58px;
+      }
+
+      h1 {
+        font-size: clamp(58px, 15vw, 84px);
+      }
+
+      .hero-meta {
+        margin-top: 38px;
+      }
+
+      .drawing {
+        min-height: 320px;
+      }
+
+      .section {
+        padding-block: 70px;
+      }
+
+      .section-heading,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 23px;
+      }
+
+      .project-section {
+        padding-block: 62px;
+      }
+
+      .project-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .project-image {
+        aspect-ratio: 1.08;
+      }
+
+      .section-heading {
+        margin-bottom: 37px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .service,
+      .service + .service {
+        min-height: auto;
+        padding: 22px 0;
+        border-left: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .service h3 {
+        margin-top: 20px;
+      }
+
+      .contact {
+        padding-block: 68px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .contact-details {
+        justify-self: start;
+      }
+
+      .footer {
+        min-height: 66px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="wordmark" href="#kezdolap" aria-label="Várdobbt — kezdőlap">
+      <span class="wordmark-mark" aria-hidden="true">V</span>
+      <span>Várdobbt</span>
+    </a>
+    <nav class="nav" aria-label="Fő navigáció">
+      <a href="#rolam">Rólam</a>
+      <a href="#szolgaltatasok">Tervezés</a>
+      <a class="nav-contact" href="#kapcsolat">Kapcsolat <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="shell hero" id="kezdolap">
+      <div>
+        <div class="eyebrow">Építészmérnök · Miskolc</div>
+        <h1>Dobos Péter <span>Imre</span></h1>
+        <p class="hero-copy">Átgondolt építészeti tervezés Miskolcon és országszerte. Minden jó terv egy beszélgetéssel kezdődik.</p>
+        <a class="button" href="mailto:dobospeterimre@gmail.com">
+          Beszéljünk a terveiről <span class="button-arrow" aria-hidden="true">↗</span>
+        </a>
+        <div class="hero-meta">
+          <span>Miskolc</span>
+          <span>Országos tervezés</span>
+        </div>
+      </div>
+
+      <div class="drawing">
+        <img
+          src="916ee375-82cb-4afc-8f7e-b87bd7d5d787.jpeg"
+          alt="Látványterv egy modern, kétszintes családi házról"
+          fetchpriority="high">
+        <span class="drawing-caption">Tér · forma · funkció</span>
+      </div>
+    </section>
+
+    <section class="section" id="rolam">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="eyebrow">Rólam</div>
+          <h2>Helyhez illő gondolatokból születik az építészet.</h2>
+        </div>
+        <div class="about-grid">
+          <p class="about-note">Dobos Péter Imre<br>Építészmérnök · Miskolc</p>
+          <div class="about-copy">
+            <p>Miskolcon élek, és az ország egész területén vállalok tervezési munkát. Az építészeti tervezés számomra a hely, az igények és a mindennapi használat összehangolása.</p>
+            <p>Ha építkezést, átalakítást vagy új terveket fontolgat, keressen bizalommal — beszéljük át elképzeléseit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="szolgaltatasok">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="eyebrow">Tervezés</div>
+          <h2>Az első elképzeléstől a kidolgozott tervig.</h2>
+        </div>
+        <div class="services">
+          <article class="service">
+            <span class="service-number">01 / ELKÉPZELÉS</span>
+            <h3>Konzultáció</h3>
+            <p>Az igények, a helyszín és a lehetőségek közös áttekintése.</p>
+          </article>
+          <article class="service">
+            <span class="service-number">02 / KONCEPCIÓ</span>
+            <h3>Építészeti tervezés</h3>
+            <p>Az elképzelésekből összeálló, átgondolt építészeti megoldás.</p>
+          </article>
+          <article class="service">
+            <span class="service-number">03 / KAPCSOLAT</span>
+            <h3>Országos elérhetőség</h3>
+            <p>Miskolci bázissal, tervezési munkák az ország egész területén.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" aria-labelledby="project-title">
+      <div class="shell">
+        <div class="project-layout">
+          <div class="project-copy">
+            <div class="eyebrow">Tervlátvány</div>
+            <h2 id="project-title">Egy ház, két nézőpont.</h2>
+            <p>A homlokzat mellett madártávlatból is megmutatkozik a tömegformálás és az épület kapcsolata a környezetével.</p>
+          </div>
+          <figure class="project-image">
+            <img
+              src="6c2b8b60-7d69-4e74-b300-8135f36c2ed6.jpeg"
+              alt="Családi ház építészeti látványterve madártávlatból"
+              loading="lazy">
+            <figcaption>Építészeti látványterv · családi ház</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kapcsolat">
+      <div class="shell contact-grid">
+        <div>
+          <div class="eyebrow">Kapcsolat</div>
+          <h2>Van egy terve? Kezdjük el.</h2>
+        </div>
+        <div class="contact-details">
+          <span class="contact-label">E-mail</span>
+          <a class="contact-item" href="mailto:dobospeterimre@gmail.com">dobospeterimre@gmail.com</a>
+          <span class="contact-label">Telefon</span>
+          <a class="contact-item" href="tel:+36703293877">06 70 329 3877</a>
+          <span class="contact-label">Helyszín</span>
+          <span class="contact-item">Miskolc · országosan</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <span>© <span id="year">2026</span> Várdobbt</span>
+    <span>Építészmérnök · Miskolc</span>
+  </footer>
+</body>
+</html>
